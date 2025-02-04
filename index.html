@@ -2,23 +2,62 @@
 <html>
     <head>
         <img style="width: 10%;height: 10%;" src="fish.webp">
+        <script>
+            function toggle() {
+                /*var theme = window.localStorage.getItem("theme")
+                var body = document.getElementsByTagName("body")[0]
+                if (body.style["background-color"] == "white") {
+                    body.style["background-color"] = "gray"
+                    body.style["color"] = "white"
+                } else if (body.style["background-color"] == "gray") {
+                    body.style["background-color"] = "white"
+                    body.style["color"] = "black"
+                }*/
+
+
+                var theme = window.localStorage.getItem("theme")
+                var body = document.getElementsByTagName("body")[0]
+                if (theme == null || theme == "white") {
+                    body.style["background-color"] = "gray"
+                    body.style["color"] = "white"
+                    window.localStorage.setItem("theme", "gray")
+                } else if (theme == "gray") {
+                    body.style["background-color"] = "white"
+                    body.style["color"] = "black"
+                    window.localStorage.setItem("theme", "white")
+                }                
+            }
+
+            function loadTheme() {
+                var theme = window.localStorage.getItem("theme")
+                var body = document.getElementsByTagName("body")[0]
+                if (theme == null || theme == "white") {
+                    body.style["background-color"] = "white"
+                    body.style["color"] = "black"
+                } else if (theme == "gray") {
+                    body.style["background-color"] = "gray"
+                    body.style["color"] = "white"
+                }  
+            }
+        </script>
     </head>
-    <body style="background-color: gray;font-size: 20px; color:white">
+    <body onLoad=loadTheme()>
         <div>
-            <a style="font-size:30px" href="about.html">About</a>
-            <a style="font-size:30px" href="gallery.html">Gallery</a>
-            <a style="font-size:30px" href="contact.html">Contact</a>
+            <a style="font-size:30px; background-color: aqua;" href="about.html">About</a>
+            <a style="font-size:30px; background-color: aqua;" href="gallery.html">Gallery</a>
+            <a style="font-size:30px; background-color: aqua;" href="contact.html">Contact</a>
+            <a style="font-size:30px; background-color: aqua;" href="#" onclick="toggle()">Toggle Theme</a>
         </div>
         <div>
             <h1>Welcome to Our Website!</h1>
-            <table style="border: 2px white solid;">
+            <table>
                 <tr>
-                    <th>Fishes</th>
-                    <th>Price</th>
+                    <th style="border: 2px white solid;">Fishes</th>
+                    <th style="border: 2px white solid;">Price</th>
                 </tr>
                 <tr>
-                    <td>Goldfish</td>
-                    <td>$10.99</td>
+                    <td style="border: 2px white solid;">Goldfish</td>
+                    <td style="border: 2px white solid;">$10.99</td>
                 </tr>
             </table>
         </div>
